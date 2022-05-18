@@ -60,11 +60,11 @@
 | /users/:id | GET | ユーザーの表示/編集/削除 |
 | /users/:id/message | POST | メッセージ送信 |
 | /plans | GET/POST | プラン一覧画面の表示/プランの作成・編集|
-| /plans/:digest_id | GET | プラン画面の表示 |
-| /plans/:digest_id/:plan_id | DELETE | プランの削除 |
+| /plans/:digestId | GET | プラン画面の表示 |
+| /plans/:digestId/:planId | DELETE | プランの削除 |
 | /schedules/:id | GET/POST/PUT/DELETE | スケジュール情報の取得/作成/編集/削除 |
 | /me/messages | GET | メッセージ一覧の表示 |
-| /me/users/:user_id/messages | GET | 特定の人とのメッセージ一覧の表示 |
+| /me/users/:userId/messages | GET | 特定の人とのメッセージ一覧の表示 |
 | /me/notifications | GET | お知らせの表示　|
 | /me | GET/PUT/DELETE | アカウントの表示/編集/削除　|
 | /me/settinngs/profile | GET/PUT | プロフィール設定画面の表示/編集 |
