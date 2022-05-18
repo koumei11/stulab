@@ -1,0 +1,60 @@
+{
+  "name": "stulab",
+  "version": "1.0.0",
+  "description": "## URL",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node build/tasks/run-api-server.js",
+    "dev": "rm -rf build && cross-env NODE_ENV=development tsc-watch --esModuleInterop src/tasks/run-api-server.ts --outDir ./build --onSuccess 'node ./build/tasks/run-api-server.js'",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
+    "build": "npx tsc",
+    "lint": "eslint --ext src/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koumei11/stulab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/koumei11/stulab/issues"
+  },
+  "homepage": "https://github.com/koumei11/stulab#readme",
+  "dependencies": {
+    "@types/morgan": "^1.9.3",
+    "@types/winston": "^2.4.4",
+    "cross-env": "^7.0.3",
+    "express": "^4.18.1",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "morgan-json": "^1.1.0",
+    "winston": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/http-errors": "^1.8.2",
+    "@types/jest": "^27.5.1",
+    "@types/morgan-json": "^1.1.0",
+    "@types/node": "^17.0.34",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "jest": "^28.1.0",
+    "prettier": "^2.6.2",
+    "supertest": "^6.2.3",
+    "ts-jest": "^28.0.2",
+    "ts-node": "^10.7.0",
+    "tsc-watch": "^5.0.3",
+    "typescript": "^4.6.4"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testMatch": [
+      "**/tests/**/*.test.(ts|tsx)"
+    ]
+  }
+}
