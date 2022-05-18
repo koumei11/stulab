@@ -25,14 +25,11 @@
   - ALB
   - Auto Scaling
   - CloudFront
-  - CloudWatch
   - CodeDeploy
   - S3
   - ACM
 - Terraform
 - GithubActions
-- Datadog
-
 
 ## 機能一覧
 - ユーザー登録、ログイン機能（メール or Google認証）
