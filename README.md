@@ -45,7 +45,31 @@
 
 ## インフラ構成図
 ## テーブル設計
-## エンドポイント設計
+## エンドポイント
 | エンドポイント | メソッド | 説明 |
-| :---       | :---  | :--- |
-|   /   | GET   | ユーザー一覧の取得 |
+| :--:      | :--:  | :--- |
+| /   | GET   | ホーム画面の表示 |
+| /signup | GET/POST | ユーザー登録画面の表示/登録 |
+| /signin | GET/POST | ログイン画面の表示/ログイン　　　|
+| /users/:id | GET | ユーザーの表示/編集/削除 |
+| /users/:id/message | POST | メッセージ送信 |
+| /plans | GET/POST | プラン一覧画面の表示/プランの作成・編集|
+| /plans/:digest_id | GET | プラン画面の表示 |
+| /plans/:digest_id/:plan_id | DELETE | プランの削除 |
+| /schedules/:id | GET/POST/PUT/DELETE | スケジュール情報の取得/作成/編集/削除 |
+| /me/messages | GET | メッセージ一覧の表示 |
+| /me/users/:user_id/messages | GET | 特定の人とのメッセージ一覧の表示 |
+| /me/notifications | GET | お知らせの表示　|
+| /me | GET/PUT/DELETE | プロフィールの表示/編集/削除　|
+| /me/settinngs/profile | GET/PUT | プロフィール設定画面の表示/編集 |
+| /me/settings/plans | GET | 契約プラン一覧の表示 |
+| /me/settings/users | GET | 契約生徒一覧の表示 |
+| /me/settings/schedules | GET | 授業スケジュールの表示 |
+| /me/plans/edit | GET | プラン編集画面の表示 |
+| /me/plans/:id | DELETE | 契約プランの解除 |
+| /me/users/:id | DELETE | 契約生徒の解除 |
+| /contract | GET/POST | お問い合わせ　 |
+| /password/reset | GET/POST | パスワードのリセット申請　|
+| /password/new | GET/POST | パスワードのリセット　　|
+| /version | GET | バージョン情報の取得 |
+| /health | GET | ヘルスチェック |
