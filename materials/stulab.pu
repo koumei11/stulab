@@ -73,8 +73,8 @@ entity matching<<マッチング>> {
 entity message<<メッセージ>> {
   * id [PK]
   --
-  * sender_id [FK]
-  * receiver_id [FK]
+  * from [FK]
+  * to [FK]
   * message_text [テキスト]
   * created_at [作成日]
   * is_read [既読]
@@ -94,6 +94,7 @@ entity schedule<<スケジュール>> {
   * instructor_id [FK]
   * student_id [FK]
   * class_day [授業日]
+  memo [メモ]
 }
 
 user ||.l.o{ federated_credentials
