@@ -66,7 +66,7 @@
 | /me/messages | GET | メッセージ一覧の表示 |
 | /me/users/:user_id/messages | GET | 特定の人とのメッセージ一覧の表示 |
 | /me/notifications | GET | お知らせの表示　|
-| /me | GET/PUT/DELETE | プロフィールの表示/編集/削除　|
+| /me | GET/PUT/DELETE | アカウントの表示/編集/削除　|
 | /me/settinngs/profile | GET/PUT | プロフィール設定画面の表示/編集 |
 | /me/settings/plans | GET | 契約プラン一覧の表示 |
 | /me/settings/users | GET | 契約生徒一覧の表示 |
