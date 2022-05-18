@@ -1,0 +1,114 @@
+@startuml
+
+entity user<<ユーザー>> {
+  * id [PK]
+  --
+  * username [ユーザー名]
+  mail_address [メール]
+  password_digest [パスワード]
+  description [自己紹介]
+  * delete_flg [削除フラグ]
+  icon_url_path [アイコンパス]
+}
+
+entity federated_credentials<<認証プロバイダー>> {
+  * provider [PK] [プロバイダー]
+  * provider_user_id [PK]
+  --
+  * user_id [FK]
+}
+
+entity m_subject<<科目マスタ>> {
+  * id [PK]
+  --
+  * name [科目名]
+}
+
+entity plan_digest<<プラン概要>> {
+  * id [PK]
+  --
+  * author_id [FK]
+  header_url_path [ヘッダーパス]
+  * description [プラン概要]
+}
+
+entity plan<<プラン>> {
+  * id [PK]
+  * digest_id [PK]
+  --
+  * author_name [作成者名]
+  * title [タイトル]
+  * type [契約形態]
+  * fee [料金]
+  * description [プラン内容]
+}
+
+entity user_subject<<ユーザー科目関連>> {
+  * user_id [PK]
+  * subject_id [PK]
+}
+
+entity plan_subject<<プラン科目関連>> {
+  * plan_digest_id [PK] 
+  * subject_id [PK]
+}
+
+entity review<<レビュー>> {
+  * instructor_id [PK]
+  * student_id [PK]
+  --
+  * rating [評価]
+  comment [コメント]
+  created_at [作成日]
+}
+
+entity matching<<マッチング>> {
+  * student_id [PK]
+  * plan_id [PK]
+  --
+  * instructor_id [FK]
+  * start_day
+}
+
+entity message<<メッセージ>> {
+  * id [PK]
+  --
+  * sender_id [FK]
+  * receiver_id [FK]
+  * message_text [テキスト]
+  * created_at [作成日]
+  * is_read [既読]
+}
+
+entity notification<<お知らせ>> {
+  * id [PK]
+  --
+  * receiver_id [FK]
+  * text [通知テキスト]
+  * receive_date [受信日]
+}
+
+entity schedule<<スケジュール>> {
+  * id [PK]
+  --
+  * instructor_id [FK]
+  * student_id [FK]
+  * class_day [授業日]
+}
+
+user ||.l.o{ federated_credentials
+user ||..o| plan_digest
+plan_digest ||--|{ plan
+user ||-r-|{ user_subject
+m_subject ||-u-|{ user_subject
+plan ||-r-|{ plan_subject
+m_subject ||--|{ plan_subject
+user ||-u-o{ review
+user ||--o{ matching
+plan ||-u-o{ matching
+user ||.u.o{ message
+user ||.u.o{ notification
+user ||.u.o{ schedule
+
+
+@enduml
