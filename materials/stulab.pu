@@ -1,4 +1,4 @@
-@startuml
+@startuml stulab
 
 entity user<<ユーザー>> {
   * id [PK]
@@ -6,7 +6,7 @@ entity user<<ユーザー>> {
   * username [ユーザー名]
   mail_address [メール]
   password_digest [パスワード]
-  description [自己紹介]
+  introduction [自己紹介]
   * delete_flg [削除フラグ]
   icon_url_path [アイコンパス]
 }
@@ -18,10 +18,10 @@ entity federated_credentials<<認証プロバイダー>> {
   * user_id [FK]
 }
 
-entity m_subject<<科目マスタ>> {
+entity m_field<<分野マスタ>> {
   * id [PK]
   --
-  * name [科目名]
+  * name [分野名]
 }
 
 entity plan_digest<<プラン概要>> {
@@ -43,14 +43,14 @@ entity plan<<プラン>> {
   * description [プラン内容]
 }
 
-entity user_subject<<ユーザー科目関連>> {
+entity user_field<<ユーザー分野関連>> {
   * user_id [PK]
-  * subject_id [PK]
+  * field_id [PK]
 }
 
-entity plan_subject<<プラン科目関連>> {
+entity plan_field<<プラン分野関連>> {
   * plan_digest_id [PK] 
-  * subject_id [PK]
+  * field_id [PK]
 }
 
 entity review<<レビュー>> {
@@ -100,10 +100,10 @@ entity schedule<<スケジュール>> {
 user ||.l.o{ federated_credentials
 user ||..o| plan_digest
 plan_digest ||--|{ plan
-user ||-r-|{ user_subject
-m_subject ||-u-|{ user_subject
-plan ||-r-|{ plan_subject
-m_subject ||--|{ plan_subject
+user ||-r-|{ user_field
+m_field ||-u-|{ user_field
+plan ||-r-|{ plan_field
+m_field ||--|{ plan_field
 user ||-u-o{ review
 user ||--o{ matching
 plan ||-u-o{ matching
