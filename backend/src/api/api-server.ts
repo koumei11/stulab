@@ -38,4 +38,4 @@ export class ApiServer {
   getServer() {
     return process.env.NODE_ENV === 'test' ? this.server : undefined;
   }
-};
+}

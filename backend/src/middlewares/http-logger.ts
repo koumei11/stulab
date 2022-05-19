@@ -14,13 +14,8 @@ const format = json({
 const httpLogger = morgan(format, {
   stream: {
     write: (message) => {
-      const {
-        method,
-        url,
-        status,
-        contentLength,
-        responseTime
-      } = JSON.parse(message);
+      const { method, url, status, contentLength, responseTime } =
+        JSON.parse(message);
 
       logger.info('HTTP Access Log', {
         timestamp: new Date().toString(),
