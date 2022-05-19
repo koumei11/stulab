@@ -10,26 +10,38 @@
 ![サンプル](./materials/sample.jpeg)
 
 ## 使用技術
-- React（主にhooks）
-- Node.js（TypeScript）
-- Express
-- Jest
-- Nginx
-- Redis
-- Docker/Docker-compose（開発環境のみ）
-- AWS
-  - VPC
-  - EC2
-  - RDS
-  - Route53
-  - ALB
-  - Auto Scaling
-  - CloudFront
-  - CodeDeploy
-  - S3
-  - ACM
-- Terraform
-- GithubActions
+- フロントエンド
+  - React（hooks）
+- バックエンド
+  - Node.js（TypeScript）
+- フレームワーク
+  - Express
+- テスト
+  - Jest
+- ミドルウェア
+  - PostgreSQL
+  - Nginx
+  - Redis
+- 環境
+  - Docker/Docker-compose（開発）
+  - AWS（本番）
+    - VPC
+    - EC2
+    - RDS
+    - Route53
+    - ALB
+    - Auto Scaling
+    - CloudFront
+    - CodeDeploy
+    - S3
+    - ACM
+    - CloudWatch
+- CIツール
+  - GithubActions
+- 監視
+  - Datadog
+- その他
+  - Terraform
 
 ## 機能一覧
 - ユーザー登録、ログイン機能（メール or Google認証）
