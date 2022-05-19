@@ -4,7 +4,7 @@ import { logError } from '../middlewares/error-handler';
 const server = new ApiServer();
 server.start();
 
-process.on('unhandledRejection', error => {
+process.on('unhandledRejection', (error) => {
   throw error;
 });
 
