@@ -33,7 +33,7 @@
 
 ## 機能一覧
 - ユーザー登録、ログイン機能（メール or Google認証）
-- プラン作成、編集機能
+- サービス作成、編集機能
 - レビュー機能
 - 講師検索機能
 - マッチング機能
@@ -51,28 +51,31 @@
 ## エンドポイント
 | エンドポイント | メソッド | 説明 |
 | :--:      | :--:  | :--- |
-| /   | GET   | ホーム画面の表示 |
+| / | GET | ホーム画面の表示 |
 | /signup | GET/POST | ユーザー登録画面の表示/登録 |
-| /signin | GET/POST | ログイン画面の表示/ログイン　　　|
+| /signin | GET/POST | ログイン画面の表示/ログイン |
 | /users/:id | GET | ユーザーの表示/編集/削除 |
-| /users/:id/message | POST | メッセージ送信 |
-| /plans | GET/POST | プラン一覧画面の表示/プランの作成・編集|
-| /plans/:digestId | GET | プラン画面の表示 |
-| /plans/:digestId/:planId | DELETE | プランの削除 |
-| /schedules/:id | GET/POST/PUT/DELETE | スケジュール情報の取得/作成/編集/削除 |
+| /me | GET/PUT | アカウントの表示/編集/削除　|
+| /teachers | GET/POST | 講師一覧画面の表示/講師の編集 |
+| /teachers/:id | GET | 講師の表示 |
+| /me/teacher/edit | GET | 講師編集画面の表示 |
+| /services | POST | 新規サービスの作成 |
+| /services/:id | PUT/DELETE | サービスの編集/削除　|
+| /me/services/new | GET | 新規サービス作成画面の表示 |
+| /me/services/:id/edit | GET | サービス編集画面の表示 |
+| /me/schedules | GET | 授業スケジュールの表示 |
+| /me/schedules/:id | GET/POST/PUT/DELETE | スケジュール情報の取得/作成/編集/削除 |
+| /me/profile | GET/POST | プロフィール設定画面の表示/編集 |
+| /me/contracts | GET | 契約サービス一覧の表示 |
+| /me/contracts/:id | DELETE | 契約サービスの解除 |
+| /me/students | GET | 契約生徒一覧の表示 |
+| /students/:id | DELETE | 契約生徒の解除 |
 | /me/messages | GET | メッセージ一覧の表示 |
 | /me/users/:userId/messages | GET | 特定の人とのメッセージ一覧の表示 |
+| /users/:id/messages | POST | メッセージ送信 |
 | /me/notifications | GET | お知らせの表示　|
-| /me | GET/PUT/DELETE | アカウントの表示/編集/削除　|
-| /me/settinngs/profile | GET/PUT | プロフィール設定画面の表示/編集 |
-| /me/settings/plans | GET | 契約プラン一覧の表示 |
-| /me/settings/users | GET | 契約生徒一覧の表示 |
-| /me/settings/schedules | GET | 授業スケジュールの表示 |
-| /me/plans/edit | GET | プラン編集画面の表示 |
-| /me/plans/:id | DELETE | 契約プランの解除 |
-| /me/users/:id | DELETE | 契約生徒の解除 |
-| /contract | GET/POST | お問い合わせ　 |
+| /contact | GET/POST | お問い合わせ |
 | /password/reset | GET/POST | パスワードのリセット申請　|
-| /password/new | GET/POST | パスワードのリセット　　|
+| /password/new | GET/POST | パスワードのリセット　|
 | /version | GET | バージョン情報の取得 |
 | /health | GET | ヘルスチェック |

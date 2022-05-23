@@ -24,49 +24,48 @@ entity m_field<<分野マスタ>> {
   * name [分野名]
 }
 
-entity plan_digest<<プラン概要>> {
+entity teacher<<講師>> {
   * id [PK]
   --
-  * author_id [FK]
-  header_url_path [ヘッダーパス]
-  * description [プラン概要]
+  * user_id [FK]
+  * description [できること]
 }
 
-entity plan<<プラン>> {
+entity service<<サービス>> {
   * id [PK]
-  * digest_id [PK]
+  * teacher_id [PK]
   --
-  * author_name [作成者名]
+  * teacher_name [講師名]
   * title [タイトル]
   * type [契約形態]
   * fee [料金]
-  * description [プラン内容]
+  * description [サービス内容]
 }
 
-entity user_field<<ユーザー分野関連>> {
+entity user_field<<ユーザー分野マスタ関連>> {
   * user_id [PK]
   * field_id [PK]
 }
 
-entity plan_field<<プラン分野関連>> {
-  * plan_digest_id [PK] 
+entity service_field<<サービス分野マスタ関連>> {
+  * teacher_id [PK] 
   * field_id [PK]
 }
 
 entity review<<レビュー>> {
-  * instructor_id [PK]
+  * service_id [PK]
   * student_id [PK]
   --
   * rating [評価]
   comment [コメント]
-  created_at [作成日]
+  * created_at [作成日]
 }
 
-entity matching<<マッチング>> {
+entity contract<<契約>> {
   * student_id [PK]
-  * plan_id [PK]
+  * service_id [PK]
   --
-  * instructor_id [FK]
+  * teacher_id
   * start_day
 }
 
@@ -91,25 +90,24 @@ entity notification<<お知らせ>> {
 entity schedule<<スケジュール>> {
   * id [PK]
   --
-  * instructor_id [FK]
+  * teacher_id [FK]
   * student_id [FK]
-  * class_day [授業日]
+  * contract_day [授業日]
   memo [メモ]
 }
 
 user ||.l.o{ federated_credentials
-user ||..o| plan_digest
-plan_digest ||--|{ plan
+user ||..o| teacher
+teacher ||--|{ service
 user ||-r-|{ user_field
 m_field ||-u-|{ user_field
-plan ||-r-|{ plan_field
-m_field ||--|{ plan_field
-user ||-u-o{ review
-user ||--o{ matching
-plan ||-u-o{ matching
+teacher ||-r-|{ service_field
+m_field ||--|{ service_field
+teacher ||-d-o{ review
+user ||--o{ contract
+service ||-u-o{ contract
 user ||.u.o{ message
 user ||.u.o{ notification
-user ||.u.o{ schedule
-
+contract ||.l.o{ schedule
 
 @enduml
